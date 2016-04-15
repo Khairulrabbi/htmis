@@ -41,7 +41,7 @@
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-6">
 							{!! Form::submit('Add New', array('class' => 'fa fa-btn fa-plus')) !!}
-							<a href="http://localhost/htms/access/list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
+							<a href="list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
 
 						</div>
 					</div>

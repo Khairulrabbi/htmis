@@ -23,9 +23,9 @@
 						</div>
 
 						<div class="form-group">
-						<!-- 	{{ Form::checkbox('status','status', ['class'=>'form-control'])}}
-							{{ Form::label('status','Status')}} -->
-							{{ Form::checkbox('status') }}
+							{{ Form::checkbox('status','status', ['class'=>'form-control'])}}
+							{{ Form::label('status','Status')}}
+
 						</div>
 
 					<h2>Access Permission</h2>
@@ -40,7 +40,7 @@
 
 					{{ Form::submit('Edit') }}
 				
-					<a href="http://localhost/htms/role/list" style="position: absolute;left: 80%; font-size: large;">Cancel</a>
+					<a href="role/list" style="position: absolute;left: 80%; font-size: large;">Cancel</a>
 					{{ Form::close() }}
 				</div>
 			</div>

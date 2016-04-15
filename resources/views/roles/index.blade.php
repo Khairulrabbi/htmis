@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-	 <a href="http://localhost/htms/role/add" style="position: absolute; left: 80%; font-size: large;">Add New</a>
+	 <a href="add" style="position: absolute; left: 80%; font-size: large;">Add New</a>
 		<div class="col-sm-offset-2 col-sm-8" >
 			<div class="panel-body">
 				@include('common.errors')
@@ -64,5 +64,5 @@
 
 
 	</div>	
-	<a href="http://localhost/htms/access/list" style="position: absolute;float: right;">Access List</a>
+	<a href="../access/list" style="position: absolute;float: right;">Access List</a>
 @endsection

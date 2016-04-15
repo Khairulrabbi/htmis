@@ -36,7 +36,7 @@
                     {!! Form::submit('Edit') !!}
                     {!! Form::close() !!}
 
-                    <a href="http://localhost/htms/access/list" style="position: absolute;font-size: large;left: 80%">Cancel</a>
+                    <a href="list" style="position: absolute;font-size: large;left: 80%">Cancel</a>
     			</div>	
 
             </div>

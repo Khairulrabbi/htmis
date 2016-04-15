@@ -33,7 +33,7 @@
 
 						{{ Form::submit('Submit', array('class' =>'fa fa-btn fa-plus')) }}
 
-							<a href="http://localhost/htms/role/list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
+							<a href="list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
 						
 					</div>
 					

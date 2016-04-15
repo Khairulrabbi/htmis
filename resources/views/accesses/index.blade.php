@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
 
-    <a href="http://localhost/htms/access/add" style="position: absolute; left: 10%; font-size: large;">Add New</a>
+    <a href="add" style="position: absolute; left: 10%; font-size: large;">Add New</a>
 
     <!-- Downloading csv data link -->
-    <a href="http://localhost/htms/csv-data" style="position: absolute; font-size: large; float: left;">Download Data</a>
-    <a href="http://localhost/htms/role/list">Role List</a>
+    <a href="csv-data" style="position: absolute; font-size: large; float: left;">Download Data</a>
+    <a href="list">Role List</a>
         <div class="col-sm-offset-2 col-sm-8">
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
