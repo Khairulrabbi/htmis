@@ -60,9 +60,9 @@ class UserController extends Controller
         }
             $this->user->name = $request->name;
             $this->user->email = $request->email;
-            $this->user->password = $request->password;
+            $this->user->password = bcrypt($request->password);
             $this->user->address = $request->address;
-            $this->user->role = $request->role;
+            $this->user->role_id = $request->role_id;
             $this->user->save();
 
             return redirect('user/list');

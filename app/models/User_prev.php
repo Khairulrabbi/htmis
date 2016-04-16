@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $table = 'users';
+    protected $table = 'registers';
     //
-    protected $fillable = ['name', 'email', 'password', 'address', 'role_id'];
+    protected $fillable = ['name', 'email', 'password', 'address', 'role'];
 
     public function role() {
     	return $this->belongsToMany('App\models\Role');

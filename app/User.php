@@ -11,16 +11,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+     protected $table = 'users';
+    //
+    protected $fillable = ['name', 'email', 'password', 'address', 'role_id'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function role() {
+        return $this->belongsToMany('App\models\Role');
+    }
 }

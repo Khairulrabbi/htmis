@@ -45,9 +45,6 @@ Route::group(['middleware' => ['web']], function() {
 
         return redirect('role/list');
     });
-
-    
-
     
     // USER
 
@@ -93,22 +90,12 @@ Route::group(['middleware' => ['web']], function() {
         return redirect('profile/list');
     });
 
+    // User Registration and authentication
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
+
 });
 
-//Working with User
-
-
-//Registration and Login
-// Route::group(['middleware' => 'web'], function () {
-//     Route::auth();
-
-//     Route::get('/home', 'HomeController@index');
-// });
-
-// Route::group(['middleware' => 'web'], function () {
-//     Route::auth();
-
-//     Route::get('/home', 'HomeController@index');
-// });
 
 
