@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ 'register' }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -83,7 +83,12 @@
                             <label class="col-md-4 control-label">Role</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="role_id" value="{{ old('role_id') }}"></input>
+                                <select class="form-control" name="role_id">
+                                    <option value="">Choose Role Type</option>
+                                        @foreach($roles as $role) 
+                                            <option value="{{$role->id}}">{{$role->name}}</option>
+                                        @endforeach
+                                </select>
                                 
                                 @if($errors->has('role_id'))
                                     <span class="help-block">

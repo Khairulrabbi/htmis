@@ -90,10 +90,15 @@ Route::group(['middleware' => ['web']], function() {
         return redirect('profile/list');
     });
 
+
+//User Registration and Login
+    Route::get('user/register', 'UserController@add');
+    Route::post('user/register', 'UserController@saveOrUpdate');
+
     // User Registration and authentication
-    Route::auth();
-    Route::get('/home', 'HomeController@index');
-    Route::get('/', 'HomeController@index');
+    // Route::auth();
+    // Route::get('/home', 'HomeController@index');
+    // Route::get('/', 'HomeController@index');
 
 });
 
