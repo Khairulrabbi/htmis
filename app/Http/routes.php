@@ -47,7 +47,6 @@ Route::group(['middleware' => ['web']], function() {
     });
     
 
-
     // Category
 
     Route::get('category/add','CategoryController@add');
@@ -78,7 +77,8 @@ Route::group(['middleware' => ['web']], function() {
     });
 
 
-//User Registration and Login
+    //User Registration and Login
+    
     Route::get('user/register', 'UserController@add');
     Route::post('user/register', 'UserController@saveOrUpdate');
     Route::get('user/list', 'UserController@index');
