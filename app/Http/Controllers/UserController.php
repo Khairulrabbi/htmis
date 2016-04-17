@@ -107,4 +107,9 @@ class UserController extends Controller
         return view('auth.edit', compact('user', 'id', 'roles'));
     }
 
+    public function login() {
+
+        return view('auth.login');
+    }
+
 }
