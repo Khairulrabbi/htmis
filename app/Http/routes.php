@@ -94,7 +94,10 @@ Route::group(['middleware' => ['web']], function() {
 //User Registration and Login
     Route::get('user/register', 'UserController@add');
     Route::post('user/register', 'UserController@saveOrUpdate');
-    
+    Route::get('user/list', 'UserController@index');
+    Route::get('user/{id}/edit', 'UserController@edit');
+    Route::post('user/{id}/update', 'UserController@saveOrUpdate');
+
     // Route::get('home', 'HomeController@index');
 
     // User Registration and authentication

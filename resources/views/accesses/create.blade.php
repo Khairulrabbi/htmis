@@ -1,59 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
-		<div class="col-sm-offset-2 col-sm-8">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					New Accesses
-				</div>
+<div class="register-box">
+      <div class="register-logo">
+        <a href="access/add"><b>Access</b></a>
+      </div>
 
-				<div class="panel-body">
-					@include('common.errors')
+      <div class="register-box-body">
+      
+        <p class="login-box-msg">Register a new membership</p>
+        @include('common.errors')
+        {!! Form::open(['url' => 'access/add', 'method' => 'post', 'role' => 'form']) !!}
+		{{ csrf_field() }}
+        <!-- <form action="access/add" method="post"> -->
+          <div class="form-group has-feedback">
+            <!-- <input type="text" class="form-control" placeholder="Full name"> -->
+            {{ Form::text('name', '', array('class'=>'form-control', 'placeholder'=>'Name') ) }}
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          {{ Form::text('action_name', '', array('class'=>'form-control', 'placeholder'=>'Action Name')) }}
+           <!--  <input type="email" class="form-control" placeholder="Email"> -->
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <!--   {{Form::label('name', 'Name')}}
+                {{ Form::text('name', '', array('placeholder'=>'Enter Name')) }} -->
+          </div>
+          <div class="form-group has-feedback">
+          {{ Form::text('controller_name', '', array('class'=>'form-control', 'placeholder'=>'Controller Name')) }}
+            <!-- <input type="password" class="form-control" placeholder="Password"> -->
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+        
+          <div class="row">
+            <div class="col-xs-8">
 
-					<!-- Form data Validation Error -->
-			<!-- 	    @if ( $errors->count() > 0 )
-				      <p>The following errors have occurred:</p>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+         
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div><!-- /.col -->
 
-				      <ol>
-				        @foreach( $errors->all() as $message )
-				          <li>{{ $message }}</li>
-				        @endforeach
-				      </ol>
-				    @endif -->
+          </div>
+              
+        </form>
 
-				    
-					{!! Form::open(['url' => 'access/add', 'method' => 'post', 'role' => 'form']) !!}
-					{{ csrf_field() }}
-
-					<div class="form-group">
-						{!! Form::label('name', 'Name') !!}
-						{!! Form::text('name', '',  array('class'=>'form-control', 'required'=>'required')) !!}
-
-						{!! Form::label('action_name', 'Action Name') !!}
-						{!! Form::text('action_name', '',  array('class'=>'form-control', 'required'=>'required')) !!}
-
-						{!! Form::label('controller_name', 'Controller Name') !!}
-						{!! Form::text('controller_name', '',  array('class'=>'form-control', 'required' =>'required')) !!}
-
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-offset-3 col-sm-6">
-							{!! Form::submit('Add New', array('class' => 'fa fa-btn fa-plus')) !!}
-							<a href="list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
-
-						</div>
-					</div>
-
-					{!! Form::close() !!}
-
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
-
-
+      </div><!-- /.form-box -->
+    </div><!-- /.register-box -->
 @endsection
+

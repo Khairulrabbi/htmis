@@ -33,7 +33,7 @@ class UserController extends Controller
         $v = User::validate(Input::all());
         if ($v->passes()) {
             if ($id != '') {
-            
+                $user = User::find($id);
             } else {
                 $user->name = $request->name;
                 $user->email = $request->email;
@@ -52,8 +52,21 @@ class UserController extends Controller
 
             return Redirect::to('user/register')->withErrors($v->getMessageBag());
         }
+    }
 
+    public function index() {
+        $users = User::all();
 
+        return view('auth.index', compact('users') );
+    }
+
+    public function edit($id) {
+        $user = User::find($id);
+        $id = $user->id;
+
+        $roles = Role::all();
+
+        return view('auth.edit', compact('user', 'id', 'roles'));
     }
 
 }
