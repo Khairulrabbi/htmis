@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use DB;
-use Response;
-use Session;
-
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
+use DB;
+use Response;
+use Session;
 
 use App\models\Access;
 use App\models\Role;
@@ -18,16 +17,43 @@ use App\Http\Controllers\Controller;
 
 class AccessController extends Controller
 {
+    /**
+     * The Access instance
+     * @var App\models\Access
+     *
+     */
     protected $access;
+
+    /**
+     * Create a new AccessController instance.
+     *
+     * @param  App\models\Access $access
+     * @return void
+     */
+
     public function __construct(Access $access) {
         $this->access = $access;
     }
+
+    /**
+     * Show the form for creating new access
+     * 
+     * @return Response
+     */
 
     //Create
     public function add() {
         
     	return view('accesses.create'); 
     }
+
+    /**
+     * Store a newly created access to database
+     *
+     * Validations are done
+     *
+     * @param $request
+     */
 
     //Save
     public function save(Request $request) {
@@ -46,16 +72,27 @@ class AccessController extends Controller
             return Redirect::to('access/add')->withErrors($v->getMessageBag());
         }
     }
- 
+    
+    /**
+     *
+     *display list of access
+     *
+     * @return Response
+     */
+
     //Display
     public function index() {
        $accesses = Access::orderBy('created_at', 'desc')->paginate(5);
        return view('accesses.index', compact('accesses', $accesses));
-        // return view('accesses.index', [
-        //     'lists' => Access::orderBy('created_at', 'desc')->paginate(5)
-        // ]);
     }
 
+    /**
+     * Create a edit form
+     * 
+     * @param $id
+     *
+     * @return Response
+     */
 
     public function edit($id) {
         // $access = Access::find($id);
@@ -64,7 +101,12 @@ class AccessController extends Controller
 
     }
 
-
+    /**
+     * Update the specified row 
+     * @param App\models\Access
+     * @param App\requests\Request $request
+     * @return Response
+     */
 
     //Update
     public function update(Request $request, $id) {
@@ -91,6 +133,9 @@ class AccessController extends Controller
     //     return view('accesses.index', compact('lists'));
     // }
 
+    /**
+     *Create CSV File from html
+     */
     //CSV File 
     public function getCsv() {
         $table = Access::all();
