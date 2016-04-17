@@ -46,19 +46,6 @@ Route::group(['middleware' => ['web']], function() {
         return redirect('role/list');
     });
     
-    // USER
-
-    Route::get('user/add', 'UserController@add');
-    Route::post('user/addorupdate', 'UserController@saveOrUpdate');
-    Route::get('user/list', 'UserController@index');
-    Route::get('user/{id}/edit', ['uses'=>'UserController@edit']);
-    // Route::post('user/update/{id}',)
-
-    Route::delete('user/{id}', function($id) {
-        User::findOrFail($id)->delete();
-
-        return redirect('user/list');
-    });
 
 
     // Category
