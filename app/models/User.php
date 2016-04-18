@@ -16,7 +16,7 @@ class User extends Model
             'name' => 'required|alpha|max:255',
             'email' => 'required|email|max:255|unique:users',
             'address' => 'required|max:255',
-            'role_id' => 'required|numeric|max:11',
+            // 'role_id' => 'required|numeric|max:11',
             'password' => 'required|confirmed|min:6',
     		);
 

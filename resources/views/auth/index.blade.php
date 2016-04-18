@@ -5,6 +5,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                <script type="text/javascript">
+                    function ConfirmDelete() {
+                        var x = confirm('Are you sure to delete');
+                        if(x)
+                            return true;
+                        else 
+                            return false;
+                    }
+                </script>
                 <div class="panel-heading">User List</div>
                 <div class="panel-body">
                 @if(count($users)>0)
@@ -23,6 +32,13 @@
                                 <td class="table-text"><div>{{$user->email}}</div></td>
                                 <td class="table-text"><div>{{$user->address}}</div></td>
                                 <td class="table-text"><div>{{$user->role_id}}</div></td>
+                                <td>
+                                    {{ Form::open(['url'=>'user/'.$user->id, 'files'=>'true', 'onsubmit'=>'return ConfirmDelete()']) }}
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    {{ Form::submit('DELETE', array('class'=>'btn btn-danger')) }}
+                                    {{ Form::close() }}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

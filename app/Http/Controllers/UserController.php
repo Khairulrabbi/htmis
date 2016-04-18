@@ -15,9 +15,9 @@ use Session;
 class UserController extends Controller
 {
     /**
-     * The UserClass instance.
+     * The User instance.
      *
-     * @var App\Repositories\UserClass
+     * @var App\models\User
      */  
 	protected $user;
 
@@ -73,7 +73,8 @@ class UserController extends Controller
 
                 Session::flash('message', 'User Created Successfully');
 
-                return view('home');
+                // return view('home');
+                return redirect('/home');
                     
             }
         } else {

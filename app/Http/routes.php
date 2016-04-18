@@ -33,11 +33,9 @@ Route::group(['middleware' => ['web']], function() {
     // Role
 
     Route::get('role/add', 'RoleController@add');
-    // Route::post('role/add', 'RoleController@save');
     Route::post('role/add', 'RoleController@saveOrUpdate');
     Route::get('role/list', 'RoleController@index');
     Route::get('role/{id}/edit', 'RoleController@edit');
-    // Route::post('role/update/{id}', 'RoleController@update');
     Route::post('role/update/{id}', 'RoleController@saveOrUpdate');
 
     Route::delete('role/{id}', function($id) {
@@ -79,20 +77,21 @@ Route::group(['middleware' => ['web']], function() {
 
     //User Registration and Login
 
+    Route::auth();
+    Route::get('/', 'UserController@index');
+    Route::get('/home', 'HomeController@index');
     Route::get('register', 'UserController@add');
     Route::post('register', 'UserController@saveOrUpdate');
     Route::get('user/list', 'UserController@index');
     Route::get('user/{id}/edit', 'UserController@edit');
     Route::post('user/{id}/update', 'UserController@saveOrUpdate');
 
-    Route::get('login', 'UserController@login');
+    Route::delete('user/{id}', function($id) {
+        User::findOrFail($id)->delete();
 
-    // Route::get('home', 'HomeController@index');
+        return redirect('user/list');
+    });
 
-    // User Registration and authentication
-    // Route::auth();
-    // Route::get('/home', 'HomeController@index');
-    // Route::get('/', 'HomeController@index');
 
 });
 
