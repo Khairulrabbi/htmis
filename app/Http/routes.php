@@ -11,10 +11,10 @@ Route::group(['middleware' => ['web']], function() {
     // Access
 
     Route::get('access/add', 'AccessController@add');
-    Route::post('access/add', 'AccessController@save');
+    Route::post('access/add', 'AccessController@saveOrUpdate');
     Route::get('access/list', 'AccessController@index');
     Route::get('access/{id}/edit', 'AccessController@edit');
-    Route::post('access/update/{id}', 'AccessController@update');
+    Route::post('access/update/{id}', 'AccessController@saveOrUpdate');
 
     Route::delete('/access/{id}', function ($id) {
             Access::findOrFail($id)->delete();

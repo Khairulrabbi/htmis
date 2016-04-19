@@ -36,13 +36,15 @@
             <div class="col-xs-8">
 
             </div><!-- /.col -->
+           
             <div class="col-xs-4">
-         
-              <button type="submit" class="btn btn-primary btn-block btn-flat" style="position: absolute;left: 0%">Cancel</button>
-            </div><!-- /.col -->
-              <div class="col-xs-4">
-         
-              <button type="submit" class="btn btn-primary btn-block btn-flat" style="right: 80%">Edit</button>
+                <a href="../list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
+            </div>
+
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat" style="right: 80%">Edit
+                    
+                </button>
             </div>
           </div>
               

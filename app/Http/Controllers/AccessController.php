@@ -48,30 +48,39 @@ class AccessController extends Controller
     }
 
     /**
-     * Store a newly created access to database
+     * Store a newly created access to database if id is null
      *
+     * if id is not null then it checks for update
      * Validations are done
      *
-     * @param $request
+     * @param $request, $id
      */
 
-    //Save
-    public function save(Request $request) {
+    public function saveOrUpdate(Request $request, $id = '') {
+        $access = new Access();
         $v = Access::validate(Input::all());
         if ($v->passes()) {
-            $this->access->name = $request->name;
-        	$this->access->action_name = $request->action_name;
-        	$this->access->controller_name = $request->controller_name;
-        	$this->access->save();
 
-            Session::flash('message', 'Access Created Successfully');
+            if ($id !='') {
+                $access = Access::find($id);
+            } else {
+
+            }
+            
+            $access->name = $request->name;
+            $access->action_name = $request->action_name;
+            $access->controller_name = $request->controller_name;
+
+            $access->save();
 
             return redirect('access/list');
+            
         } else {
 
             return Redirect::to('access/add')->withErrors($v->getMessageBag());
         }
     }
+
     
     /**
      *
@@ -80,7 +89,6 @@ class AccessController extends Controller
      * @return Response
      */
 
-    //Display
     public function index() {
        $accesses = Access::orderBy('created_at', 'desc')->paginate(5);
        return view('accesses.index', compact('accesses', $accesses));
@@ -95,31 +103,12 @@ class AccessController extends Controller
      */
 
     public function edit($id) {
-        // $access = Access::find($id);
         $access = $this->access->find($id);
         return view('accesses.edit', compact('access', $access));
 
     }
 
-    /**
-     * Update the specified row 
-     * @param App\models\Access
-     * @param App\requests\Request $request
-     * @return Response
-     */
-
-    //Update
-    public function update(Request $request, $id) {
-        $access = Access::find($id);
-        $access->action_name = $request->action_name;
-        $access->name = $request->name;
-        $access->controller_name = $request->controller_name;
-        $access->save();
-
-        Session::flash('message', 'Operation Updated Successfully');
-        
-        return redirect('access/list');
-    }
+ 
 
 //Search Work
     // public function search(Request $request) {
