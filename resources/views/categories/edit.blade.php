@@ -21,9 +21,12 @@
 
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-6">
-								{{ Form::submit('Update', array('class'=>'fa fa-btn fa-plus')) }}
+								{{ Form::submit('Edit', array('class'=>'fa fa-btn fa-plus')) }}
 							</div>
+
 						</div>
+
+						<a href="../list">Cancel</a>
 					{{ Form::close() }}
 				</div>
 				

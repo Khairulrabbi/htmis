@@ -10,7 +10,7 @@ class Access extends Model
 
       public static function validate($input) {
       	$rules = array(
-                  'name'=>'Required|Min:3|Max:100',
+                  'name'=>'Required|Min:3|Max:100|Alpha',
       		'action_name' =>'Required|Min:3|Max:100|Alpha',
       		'controller_name' =>'Required|Min:4|Max:100|Alpha'
       	);
