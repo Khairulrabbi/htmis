@@ -1,46 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="col-sm-offset-2 col-sm-8">
-            <div class="panel panel-default">
-                
-                <div class="panel-heading">
-                    Update Access
-                </div>
+<div class="register-box">
+      <div class="register-logo">
+        <a href=""><b>Update Access</b></a>
+      </div>
 
-                <div class="panel-body">
-                	@include('common.errors')
-                </div>
+      <div class="register-box-body">
+      
+        <!-- <p class="login-box-msg">Register a new membership</p> -->
+        @include('common.errors')
+        {!! Form::open(['url' =>'access/update/'.$access->id, 'method' => 'post', 'role' => 'form']) !!}
+        {{ csrf_field() }}
+   
+          <div class="form-group has-feedback">
+            {!! Form::label('name', 'Name:') !!}
+            {{ Form::text('name', $access->name, array('class'=>'form-control', 'placeholder'=>'Name') ) }}
+          <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
+          </div>
+          <div class="form-group has-feedback">
+          {!! Form::label('action_name', 'Action Name:') !!}
+          {{ Form::text('action_name', $access->action_name, array('class'=>'form-control', 'placeholder'=>'Action Name')) }}
+         
+            <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
+          
+          </div>
+          <div class="form-group has-feedback">
+          {!! Form::label('controller_name', 'Controller Name:') !!}
+          {{ Form::text('controller_name', $access->controller_name, array('class'=>'form-control', 'placeholder'=>'Controller Name')) }}
+         
+          <!--   <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
+          </div>
+        
+          <div class="row">
+            <div class="col-xs-8">
 
-                <div class="panel-body">
-                	{!! Form::open(['url'=>'access/update/'.$access->id, 'method'=>'post', 'role'=>'form']) !!}
-                		{{ csrf_field() }}
-               
-                    <div class="form-group">
-                         {!! Form::label('name', 'Name:', ['class' => 'col-sm-3 control-label']) !!}
-                         {!! Form::text('name', $access->name, ['class' => 'form-control']) !!}
-                        
-                    </div>
-                	<div class="form-group">
-    					 {!! Form::label('action_name', 'Action Name:', ['class' => 'col-sm-3 control-label']) !!}
-    					 {!! Form::text('action_name', $access->action_name, ['class' => 'form-control']) !!}
-    					
-    				</div>
-    				<div class="form-group">
-    					{!! Form::label('controller_name', 'Controller Name', ['class' => 'col-sm-3 controller-label']) !!}
-    					{!! Form::text('controller_name', $access->controller_name, ['class' => 'form-control']) !!}
-
-                    </div>
-
-                    {!! Form::submit('Edit') !!}
-                    {!! Form::close() !!}
-
-                    <a href="list" style="position: absolute;font-size: large;left: 80%">Cancel</a>
-    			</div>	
-
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+         
+              <button type="submit" class="btn btn-primary btn-block btn-flat" style="position: absolute;left: 0%">Cancel</button>
+            </div><!-- /.col -->
+              <div class="col-xs-4">
+         
+              <button type="submit" class="btn btn-primary btn-block btn-flat" style="right: 80%">Edit</button>
             </div>
-        </div>
-    </div>
+          </div>
+              
+        </form>
 
+      </div><!-- /.form-box -->
+    </div><!-- /.register-box -->
 @endsection
+

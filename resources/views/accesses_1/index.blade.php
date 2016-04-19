@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container">
-     <!-- Downloading csv data link -->
-    <a href="../csv-data" style="position: absolute; left: 5%; font-size: large;">Download Data</a>
 
-    
-    <a href="add" style="position: absolute; font-size: large; left:80%;">Add New</a>
-    <a href="../role/list" style="position: absolute; font-size: large; left:15%;">Role List</a>
+    <a href="add" style="position: absolute; left: 10%; font-size: large;">Add New</a>
+
+    <!-- Downloading csv data link -->
+    <a href="../csv-data" style="position: absolute; font-size: large; float: left;">Download Data</a>
+    <a href="../role/list">Role List</a>
         <div class="col-sm-offset-2 col-sm-8">
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
