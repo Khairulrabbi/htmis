@@ -84,7 +84,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('register', 'UserController@saveOrUpdate');
     Route::get('user/list', 'UserController@index');
     Route::get('user/{id}/edit', 'UserController@edit');
-    Route::post('user/{id}/update', 'UserController@saveOrUpdate');
+    Route::post('user/update/{id}', 'UserController@saveOrUpdate');
 
     Route::delete('user/{id}', function($id) {
         User::findOrFail($id)->delete();

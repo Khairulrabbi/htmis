@@ -7,7 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Update User</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ 'update' }}">
+                    <!-- <form class="form-horizontal" role="form" method="POST" action="{{ 'update' }}"> -->
+                    {{ Form::open(['url'=>'user/update/'.$user->id, 'method'=>'post', 'role'=>'form']) }}
+
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

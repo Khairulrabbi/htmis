@@ -56,31 +56,32 @@ class UserController extends Controller
      * @return Response
      */
     public function saveOrUpdate(Request $request, $id='') {
-    	$user = new User();
 
+       	$user = new User();
         $v = User::validate(Input::all());
+
         if ($v->passes()) {
-            if ($id != '') {
-                $user = User::find($id);
+
+            if($id != '') {
+               $user = User::find($id);
             } else {
-                $user->name = $request->name;
-                $user->email = $request->email;
-                $user->password = bcrypt($request->password);
-                $user->address = $request->address;
-                $user->role_id = $request->role_id;
 
-                $user->save();
-
-                Session::flash('message', 'User Created Successfully');
-
-                // return view('home');
-                return redirect('/home');
-                    
             }
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->address = $request->address;
+            $user->role_id = $request->role_id;
+            $user->save();
+
+            // return redirect('user/list');
+            return redirect('/home');
         } else {
 
-            return Redirect::to('user/register')->withErrors($v->getMessageBag());
+            return Redirect::to('register')->withErrors($v->getMessageBag());           
         }
+     
     }
 
     /**
@@ -89,7 +90,8 @@ class UserController extends Controller
      * @return Response
      */
     public function index() {
-        $users = User::all();
+        // $users = User::all();
+        $users = User::orderBy('created_at','desc')->paginate(5);
 
         return view('auth.index', compact('users') );
     }
