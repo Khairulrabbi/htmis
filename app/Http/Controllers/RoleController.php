@@ -49,6 +49,9 @@ class RoleController extends Controller
 
     public function saveOrUpdate(Request $request, $id='') {
         $role = new Role();
+        $v = Role::validate(Input::all());
+
+        if($v->passes()) {
         if ($id != '') {
             $role = Role::find($id);
         } else {
@@ -65,7 +68,11 @@ class RoleController extends Controller
         $id = $request->access;
         $role->access()->attach($id);
 
-        return redirect('role/list'); 
+        return redirect('role/list');            
+        } else {
+            return Redirect::to('role/add')->withErrors($v->getMessageBag());
+        }
+
 
     }
 
@@ -93,6 +100,16 @@ class RoleController extends Controller
         $accesses = Access::all();
 
         return view('roles.edit', compact('role','id', 'roles', 'accesses'));
+    }
+
+    /**
+     * To show relationships results
+     *
+     */
+    public function extra() {
+        $accesses = Role::find(4)->Access;
+        echo "<pre>";
+        var_dump($accesses);
     }
 
 }

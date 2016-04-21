@@ -92,6 +92,10 @@ Route::group(['middleware' => ['web']], function() {
         return redirect('user/list');
     });
 
+    //Extra
+
+    Route::get('relation/result', 'RoleController@extra');
+
 
 });
 
