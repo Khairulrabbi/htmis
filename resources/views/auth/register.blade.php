@@ -7,8 +7,12 @@
 	</div>
 
 	<div class="register-box-body">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/register')}}">
-            {!! csrf_field() !!}
+		<p class="login-box-msg">Register a new membership</p>
+
+        @include('common.errors')
+
+        {{ Form::open(['url'=>'register', 'method' =>'post', 'role'=>'form']) }}
+        {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label class="col-md-4 control-label">Name</label>
@@ -105,7 +109,6 @@
                     </button>
                 </div>
             </div>
-        </form>
   	
 	</div>
 </div>
