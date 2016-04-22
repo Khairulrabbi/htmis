@@ -7,8 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <title>Laravel</title>
-        
-       
+
         {{ HTML::style('resources/assets/css/AdminLTE.min.css') }}
         {{ HTML::style('resources/assets/css/blue.css') }}
          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,9 +16,6 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-   
-   
    
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
