@@ -3,13 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Laravel</title>
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        
-        {{ HTML::style('resources/assets/css/bootstrap.min.css') }}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <title>Laravel</title>
+
         {{ HTML::style('resources/assets/css/AdminLTE.min.css') }}
         {{ HTML::style('resources/assets/css/blue.css') }}
          <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,20 +16,22 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+   
+    <!-- Styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Lato';
+        }
+        .fa-btn {
+            margin-right: 6px;
+        }
+    </style>
+
 </head>
 <body id="app-layout" class="hold-transition register-page">
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Access List
-                </a>
-            </div>
-
-        </div>
-    </nav>
+   
 
     @yield('content')
 
