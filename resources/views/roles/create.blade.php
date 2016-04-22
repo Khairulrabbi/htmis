@@ -1,48 +1,88 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-	<div class="container">
-		<div class="col-sm-offset-2 col-sm-8">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					Create Role
-				</div>
-				
-				<div class="panel-body">
-					@include('common.errors')
+	<!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Advanced Form Elements
+            <small>Preview</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Forms</a></li>
+            <li class="active">Advanced Elements</li>
+          </ol>
+        </section>
 
-					{{ Form::open(['url' => 'role/add', 'method' => 'post', 'role' =>'form']) }}
+        <!-- Main content -->
+        <section class="content">
 
-						{{ csrf_field() }}
-					<div class="form-group">
-						{{ Form::label('name', 'Name') }}
-						{{ Form::text('name', '', array('class' => 'form-control', 'placeholder'=>'Enter Role Name'))}}	
-						
-						{{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp;
-						{{ Form::label('status', 'Status') }}
-					</div>
-					<h2>Access Permissions</h2>
-						
-					@foreach($accesses as $access)
-						{{ Form::checkbox('access[]',$access->id) }}
-						{{ $access->name }}	
-					@endforeach
+          <!-- SELECT2 EXAMPLE -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Select2</h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+              </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Minimal</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div><!-- /.form-group -->
+                  <div class="form-group">
+                    <label>Disabled</label>
+                    <select class="form-control select2" disabled="disabled" style="width: 100%;">
+                      <option selected="selected">Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div><!-- /.form-group -->
+                </div><!-- /.col -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Multiple</label>
+                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div><!-- /.form-group -->
+                  <div class="form-group">
+                    <label>Disabled Result</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Alabama</option>
+                      <option>Alaska</option>
+                      <option disabled="disabled">California (disabled)</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div><!-- /.form-group -->
+                </div><!-- /.col -->
+              </div><!-- /.row -->
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+              Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about the plugin.
+            </div>
+          </div><!-- /.box -->
 
-					<br>
-					<div class="col-sm-offset-3 col-sm-6">
+          </div><!-- /.row -->
 
-						{{ Form::submit('Submit', array('class' =>'fa fa-btn fa-plus')) }}
-
-							<a href="list" style="position: absolute;font-size: large; left: 80%;">Cancel</a>
-						
-					</div>
-					
-					{{ Form::close() }}
-
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
 @endsection
