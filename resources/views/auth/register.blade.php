@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+ 
 @section('content')
 <div class="register-box">
 	<div class="register-logo">
@@ -14,102 +14,46 @@
         {{ Form::open(['url'=>'register', 'method' =>'post', 'role'=>'form']) }}
         {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label class="col-md-4 control-label">Name</label>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Enter Your Name">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>         
+        </div>
 
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+        <div class="form-group has-feedback">
+            <input type="email" class="form-control" placeholder="Enter Your Email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Enter Your Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>            
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Retype password">
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        </div>
 
-                    @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Enter your Address" >
+            <span class="glyphicon glyphicon-user form-control-feedback"></span> 
+        </div>
+        <div class="form-group has-feedback">
+            <select class="form-control">
+                <option value="">
+                    Choose Role Type
+                </option>
+                @foreach($roles as $role) 
+                    <option value="{{$role->id}}">{{$role->name}}</option>
+                @endforeach        
+            </select>
+        </div>
 
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label class="col-md-4 control-label">E-Mail Address</label>
-
-                <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label class="col-md-4 control-label">Password</label>
-
-                <div class="col-md-6">
-                    <input type="password" class="form-control" name="password">
-
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <label class="col-md-4 control-label">Confirm Password</label>
-
-                <div class="col-md-6">
-                    <input type="password" class="form-control" name="password_confirmation">
-
-                    @if ($errors->has('password_confirmation'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-            <div class="form-group{{ $errors->has('address') ? 'has-error' : ''}}">
-                <label class="col-md-4 control-label">Address</label>
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="address" value="{{ old('address') }}"></input>
-                    
-                    @if($errors->has('address'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('address')}}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('role_id') ? 'has-error' : ''}}">
-                <label class="col-md-4 control-label">Role</label>
-
-                <div class="col-md-6">
-                    <select class="form-control" name="role_id">
-                        <option value="">Choose Role Type</option>
-                            @foreach($roles as $role) 
-                                <option value="{{$role->id}}">{{$role->name}}</option>
-                            @endforeach
-                    </select>
-                    
-                    @if($errors->has('role_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('role_id')}}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-btn fa-user"></i>Register
-                    </button>
-                </div>
-            </div>
-  	
+          <div class="row">
+             <div class="col-xs-4">
+                 <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+             </div><!-- /.col -->
+          </div>
 	</div>
 </div>
+
+  
 @endsection
