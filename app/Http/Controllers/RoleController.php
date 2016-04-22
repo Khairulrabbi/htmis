@@ -36,6 +36,7 @@ class RoleController extends Controller
      */
     public function add() {
         $accesses = Access::all();
+
         return view('roles.create', compact('accesses',$accesses));
     }
 

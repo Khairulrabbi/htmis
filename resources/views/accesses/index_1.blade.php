@@ -1,7 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-	<div class="container">
+<div class="container">
 	 <a href="add" style="position: absolute; left: 80%; font-size: large;">Add New</a>
 		<div class="col-sm-offset-2 col-sm-8" >
 			<div class="panel-body">
@@ -65,4 +62,3 @@
 
 	</div>	
 	<a href="../access/list" style="position: absolute;float: right;">Access List</a>
-@endsection

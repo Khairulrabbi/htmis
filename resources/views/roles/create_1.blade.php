@@ -1,34 +1,33 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container">
+	<div class="content-wrapper">
 		<div class="col-sm-offset-2 col-sm-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2>Update Role</h2>
+					<h2>Create Role</h2>
 					
 				</div>
 				
 				<div class="panel-body">
 					@include('common.errors')
 
-					{{ Form::open(['url'=>'role/update/'.$role->id, 'method' => 'post', 'role' =>'form']) }}
+					{{ Form::open(['url' => 'role/add', 'method' => 'post', 'role' =>'form']) }}
 					{{ csrf_field() }}
 
 					<div class="form-group has-feedback">
 						{{ Form::label('name', 'Name') }}
-						{{ Form::text('name', $role->name, ['class'=>'form-control'])}}	
+						{{ Form::text('name', '', array('class' => 'form-control', 'placeholder'=>'Enter Role Name'))}}	
 						<span class="glyphicon glyphicon-user form-control-feedback"></span>
 					</div>
 
 					<div class="form-group has-feedback">	
-						<!-- {{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp; -->
-						{{ Form::checkbox('status','status', ['class'=>'form-control'])}}
+						{{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp;
 						{{ Form::label('status', 'Status') }}
 					</div>
 
 					<h3>Access Permissions</h3>
-					<!-- <div class="form-group has-feedback"> -->	
+						
 					@foreach($accesses as $access)
 						{{ Form::checkbox('access[]',$access->id) }}
 						{{ $access->name }}	
