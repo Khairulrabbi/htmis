@@ -21,7 +21,7 @@
 						{{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp;
 						{{ Form::label('status', 'Status') }}
 					</div>
-					<h2>Access Permission</h2>
+					<h2>Access Permissions</h2>
 						
 					@foreach($accesses as $access)
 						{{ Form::checkbox('access[]',$access->id) }}

@@ -4,23 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <title>Laravel</title>
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        
-        <!-- {{ HTML::style('resources/assets/css/bootstrap.min.css') }} -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        {{ HTML::style('resources/assets/css/AdminLTE.min.css') }}
-        {{ HTML::style('resources/assets/css/blue.css') }}
-         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
@@ -42,9 +25,8 @@
             margin-right: 6px;
         }
     </style>
-
 </head>
-<body id="app-layout" class="hold-transition register-page">
+<body id="app-layout">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -66,15 +48,15 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('login') }}">Home</a></li>
+                    <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('login') }}">Login</a></li>
-                        <li><a href="{{ url('register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -82,7 +64,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -93,18 +75,9 @@
 
     @yield('content')
 
-   {{ HTML::script('resources/assets/js/jQuery-2.1.4.min.js') }}
-    {{ HTML::script('resources/assets/js/bootstrap.min.js') }}
-    {{ HTML::script('resources/assets/js/icheck.min.js') }}
-
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
+    <!-- JavaScripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

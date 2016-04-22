@@ -40,7 +40,7 @@
 
 					{{ Form::submit('Edit') }}
 				
-					<a href="role/list" style="position: absolute;left: 80%; font-size: large;">Cancel</a>
+					<a href="../list" style="position: absolute;left: 80%; font-size: large;">Cancel</a>
 					{{ Form::close() }}
 				</div>
 			</div>
