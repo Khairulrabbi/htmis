@@ -36,8 +36,8 @@
             <input type="text" class="form-control" placeholder="Enter your Address" >
             <span class="glyphicon glyphicon-user form-control-feedback"></span> 
         </div>
-        <div class="form-group has-feedback">
-            <select class="form-control">
+        <div class="form-group">
+            <select class="form-control select2" style="width: 100%;">
                 <option value="">
                     Choose Role Type
                 </option>
