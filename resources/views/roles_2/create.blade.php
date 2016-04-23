@@ -12,7 +12,7 @@
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Forms</a></li>
-            <li class="active">Create Role</li>
+            <li class="active">Advanced Elements</li>
           </ol>
         </section>
 
@@ -22,7 +22,7 @@
           <!-- SELECT2 EXAMPLE -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Role</h3>
+              <h3 class="box-title">Select2</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -32,54 +32,40 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Name</label>
+                    <label>Minimal</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div><!-- /.form-group -->
-
-                  <div class="form-group has-feedback"> 
-                      {{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp;
-                      {{ Form::label('status', 'Status') }}
-                  </div>
-
                   <div class="form-group">
-                   <!--  <label>Access Permissions</label> -->
-                    <h3>Access Permissions</h3>
-            
-                    @foreach($accesses as $access)
-                    {{ Form::checkbox('access[]',$access->id) }}
-                    {{ $access->name }} 
-                    @endforeach
-
-                    <br><br>
-                    <div class="row">
-                        <div class="col-xs-8">
-
-                        </div><!-- /.col -->
-           
-                  <div class="col-xs-4">
-                        <a href="../list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
-                  </div>
-
-                  <div class="col-xs-4">
-                        <button style="height:35px;width:100px" type="submit" class="btn btn-primary btn-block btn-flat" style="right: 60%">Edit
-                    
-                        </button>
-                        </div>
-                  </div>
-
-
-
+                    <label>Disabled</label>
                     
                   </div><!-- /.form-group -->
                 </div><!-- /.col -->
-
-
-
-
-
-
-
-
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Multiple</label>
+                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                      <option>Alabama</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div><!-- /.form-group -->
+                  <div class="form-group">
+                    <label>Disabled Result</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Alabama</option>
+                      <option>Alaska</option>
+                      <option disabled="disabled">California (disabled)</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div><!-- /.form-group -->
+                </div><!-- /.col -->
               </div><!-- /.row -->
             </div><!-- /.box-body -->
             <div class="box-footer">
