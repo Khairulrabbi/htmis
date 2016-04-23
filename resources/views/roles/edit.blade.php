@@ -1,63 +1,87 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container">
-		<div class="col-sm-offset-2 col-sm-8">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2>Update Role</h2>
-					
-				</div>
-				
-				<div class="panel-body">
-					@include('common.errors')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+              <h1>
+                Advanced Form Elements
+                <small>Preview</small>
+              </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Forms</a></li>
+                <li class="active">Edit Role</li>
+            </ol>
+        </section>
 
-					{{ Form::open(['url'=>'role/update/'.$role->id, 'method' => 'post', 'role' =>'form']) }}
-					{{ csrf_field() }}
+        <!-- Main content -->
+        <section class="content">
 
-					<div class="form-group has-feedback">
-						{{ Form::label('name', 'Name') }}
-						{{ Form::text('name', $role->name, ['class'=>'form-control'])}}	
-						<span class="glyphicon glyphicon-user form-control-feedback"></span>
-					</div>
+            <!-- SELECT2 EXAMPLE -->
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Role</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div><!-- /.box-header -->
 
-					<div class="form-group has-feedback">	
-						<!-- {{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp; -->
-						{{ Form::checkbox('status','status', ['class'=>'form-control'])}}
-						{{ Form::label('status', 'Status') }}
-					</div>
+                <div class="box-body">
+                    @include('common.errors')
 
-					<h3>Access Permissions</h3>
-					<!-- <div class="form-group has-feedback"> -->	
-					@foreach($accesses as $access)
-						{{ Form::checkbox('access[]',$access->id) }}
-						{{ $access->name }}	
-					@endforeach
-
-					<br><br>
-
-					<div class="row">
-            			<div class="col-xs-8">
-
-            			</div><!-- /.col -->
-           
-            			<div class="col-xs-4">
-                				<a href="../list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
-            			</div>
-
-            			<div class="col-xs-4">
-                				<button style="height:35px;width:100px" type="submit" class="btn btn-primary btn-block btn-flat" style="right: 60%">Edit
+                    {{ Form::open(['url'=>'role/update/'.$role->id, 'method' => 'post', 'role' =>'form']) }}
                     
-               				   </button>
-            			</div>
-         			</div>
-					
-					{{ Form::close() }}
+                    {{ csrf_field() }}
 
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ Form::label('name', 'Name') }}
+                                {{ Form::text('name', $role->name, array('class' => 'form-control', 'placeholder'=>'Enter Role Name'))}} 
+                        
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group has-feedback"> 
+                                {{ Form::checkbox('status', 'status') }}&nbsp;&nbsp;&nbsp;
+                                {{ Form::label('status', 'Status') }}
+                            </div>
+
+                            <div class="form-group">
+                                <!--  <label>Access Permissions</label> -->
+                                <h3>Access Permissions</h3>
+            
+                                @foreach($accesses as $access)
+                                {{ Form::checkbox('access[]',$access->id) }}
+                                {{ $access->name }} 
+                                @endforeach
+
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="col-xs-8">
+
+                                    </div><!-- /.col -->
+           
+                                    <div class="col-xs-4">
+                                        <a href="../list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <button style="height:35px;width:100px" type="submit" class="btn btn-primary btn-block btn-flat" style="right: 60%">Edit</button>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.box-body -->
+
+            </div><!-- /.box -->
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
 @endsection
