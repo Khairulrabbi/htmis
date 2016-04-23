@@ -3,11 +3,11 @@
 @section('content')
 <div class="register-box">
 	<div class="register-logo">
-		
+		<a href="#"><b>Registration Form</b></a>
 	</div>
 
-	<div class="register-box-body">
-		<p class="login-box-msg">Register a new membership</p>
+	 <div class="register-box-body">
+        <p class="login-box-msg">Register a new membership</p>
 
         @include('common.errors')
 
@@ -47,13 +47,20 @@
             </select>
         </div>
 
-          <div class="row">
-             <div class="col-xs-4">
-                 <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-             </div><!-- /.col -->
-          </div>
+        <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+             <!--    <label>
+                  <input type="checkbox"> I agree to the <a href="#">terms</a>
+                </label> -->
+              </div>
+            </div><!-- /.col -->
+
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div><!-- /.col -->
+        </div>
 	</div>
 </div>
 
-  
 @endsection
