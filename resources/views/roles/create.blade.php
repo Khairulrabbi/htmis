@@ -39,7 +39,6 @@
                             <div class="form-group">
                                 {{ Form::label('name', 'Name') }}
                                 {{ Form::text('name', '', array('class' => 'form-control', 'placeholder'=>'Enter Role Name'))}} 
-                        
                             </div><!-- /.form-group -->
 
                             <div class="form-group has-feedback"> 

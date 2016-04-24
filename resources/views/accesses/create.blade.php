@@ -1,49 +1,77 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="register-box">
-      <div class="register-logo">
-        <a href="add"><b>Access</b></a>
-      </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+              <h1>
+                Advanced Form Elements
+                <small>Preview</small>
+              </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Forms</a></li>
+                <li class="active">Create Access</li>
+            </ol>
+        </section>
 
-      <div class="register-box-body">
-      
-        <p class="login-box-msg">Register a new membership</p>
-        @include('common.errors')
-        {!! Form::open(['url' => 'access/add', 'method' => 'post', 'role' => 'form']) !!}
-	     	{{ csrf_field() }}
-        
-          <div class="form-group has-feedback">
-              
-            {{ Form::text('name', '', array('class'=>'form-control', 'placeholder'=>'Name') ) }}
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-          {{ Form::text('action_name', '', array('class'=>'form-control', 'placeholder'=>'Action Name')) }}
-         
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          
-          </div>
-          <div class="form-group has-feedback">
-          {{ Form::text('controller_name', '', array('class'=>'form-control', 'placeholder'=>'Controller Name')) }}
-            <!-- <input type="password" class="form-control" placeholder="Password"> -->
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-        
-          <div class="row">
-            <div class="col-xs-8">
+        <!-- Main content -->
+        <section class="content">
 
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-         
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-            </div><!-- /.col -->
+            <!-- SELECT2 EXAMPLE -->
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Role</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div><!-- /.box-header -->
 
-          </div>
-              
-        </form>
+                <div class="box-body">
+                @include('common.errors')
+                    {!! Form::open(['url' => 'access/add', 'method' => 'post', 'role' => 'form']) !!}
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ Form::label('name', 'Name') }}
+                                {{ Form::text('name', '', array('class'=>'form-control', 'placeholder'=>'Name') ) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                {{ Form::label('action_name', 'Action Name')}}
+                                {{ Form::text('action_name', '', array('class'=>'form-control', 'placeholder'=>'Action Name')) }}
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('controller_name', 'Controller Name')}}
+                                {{ Form::text('controller_name', '', array('class'=>'form-control', 'placeholder'=>'Controller Name')) }}
+                            </div>
 
-      </div><!-- /.form-box -->
-    </div><!-- /.register-box -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-8">
+
+                                    </div><!-- /.col -->
+           
+                                    <div class="col-xs-4">
+                                        <a href="../access/list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <button style="height:35px;width:100px" type="submit" class="btn btn-primary btn-block btn-flat" style="right: 60%">Add New</button>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col -->
+
+                    </div><!-- /.row -->
+                    {{ Form::close() }}
+                </div><!-- /.box-body -->
+
+            </div><!-- /.box -->
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
 @endsection
-
