@@ -63,7 +63,7 @@
                                     </div><!-- /.col -->
            
                                     <div class="col-xs-4">
-                                        <a href="../list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
+                                        <a href="../role/list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
                                     </div>
 
                                     <div class="col-xs-4">
@@ -75,6 +75,7 @@
                         </div><!-- /.col -->
 
                     </div><!-- /.row -->
+                    {{ Form::close() }}
                 </div><!-- /.box-body -->
 
             </div><!-- /.box -->
