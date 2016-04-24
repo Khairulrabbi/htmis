@@ -31,7 +31,7 @@ class ProfileController extends Controller
      */
     public function add() {
         $categories = Category::all('id', 'category_name');
-    	return view('doctors.create', compact('categories', $categories));
+    	return view('profile.create', compact('categories', $categories));
     }
 
     public function saveOrUpdate(Request $request, $id='') {
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     	 $this->doctor_profile->experience = $request->experience;
     	 $this->doctor_profile->designation = $request->designation;
     	 $this->doctor_profile->category_id = $request->category_id;
-    	 $this->doctor_profile->time_range = $request->time_range;
+         $this->doctor_profile->time_range = $request->time_range;
 
     	 $this->doctor_profile->save();
 
@@ -55,7 +55,7 @@ class ProfileController extends Controller
     public function index() {
     	$doctors = Profile::all();
 
-    	return view('doctors.index', compact('doctors'));
+    	return view('profile.index', compact('doctors'));
     }
 
     //Edit Doctor Profile
@@ -63,7 +63,7 @@ class ProfileController extends Controller
     	
     	 $doctor = $this->doctor_profile->find($id);
     	 $categories = Category::all('id', 'category_name');
-    	 return view('doctors.edit', compact('doctor', 'categories'));
+    	 return view('profile.edit', compact('doctor', 'categories'));
 
     }
 
