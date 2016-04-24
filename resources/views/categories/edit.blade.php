@@ -1,38 +1,71 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-	<div class="container">
-		<div class="col-sm-offset-2 col-sm-8">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					Update Category
-				</div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+              <h1>
+                Advanced Form Elements
+                <small>Preview</small>
+              </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Forms</a></li>
+                <li class="active">Create Role</li>
+            </ol>
+        </section>
 
-				<div class="panel-body">
-					@include('common.errors')
+        <!-- Main content -->
+        <section class="content">
 
-					{{ Form::open(['url'=>'category/update/'.$category->id, 'method'=>'post', 'role'=>'form']) }}
-						{{ csrf_field() }}
+            <!-- SELECT2 EXAMPLE -->
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Role</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div><!-- /.box-header -->
 
-						<div class="form-group">
-							{{ Form::label('category_name', 'Name') }}
-							{{ Form::text('category_name', $category->category_name, array('class'=>'form-control',  'required'=>'required')) }}
-						</div>
+                <div class="box-body">
+                @include('common.errors')
+                    {{ Form::open(['url'=>'category/update/'.$category->id, 'method'=>'post', 'role'=>'form']) }}
 
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-6">
-								{{ Form::submit('Edit', array('class'=>'fa fa-btn fa-plus')) }}
-							</div>
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ Form::label('category_name', 'Category Name') }}
+                                {{ Form::text('category_name', $category->category_name, array('class' => 'form-control'))}} 
+                            </div><!-- /.form-group -->
 
-						</div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-8">
 
-						<a href="../list">Cancel</a>
-					{{ Form::close() }}
-				</div>
-				
-			</div>
-			
-		</div>
-	</div>
+                                    </div><!-- /.col -->
+           
+                                    <div class="col-xs-4">
+                                    <br>
+                                        <a href="../list" class="btn btn-primary btn-block btn-flat">Cancel</a> 
+                                    </div>
 
+                                    <div class="col-xs-4">
+                                        <button type="submit" class="btn btn-primary btn-block btn-flat">Edit</button>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col -->
+
+                    </div><!-- /.row -->
+                    {{ Form::close() }}
+                </div><!-- /.box-body -->
+
+            </div><!-- /.box -->
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
 @endsection
