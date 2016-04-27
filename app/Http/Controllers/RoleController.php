@@ -38,6 +38,7 @@ class RoleController extends Controller
         $accesses = Access::all();
 
         return view('roles.create', compact('accesses',$accesses));
+
     }
 
     /**
@@ -101,6 +102,14 @@ class RoleController extends Controller
         $accesses = Access::all();
 
         return view('roles.edit', compact('role','id', 'roles', 'accesses'));
+    }
+
+    public function indexe() {
+        $roles = Role::all();
+        $rulles = DB::table('access_role')->get();
+        $x = DB::table('access_role')->where('role_id','5')->get();
+
+        return view('roles.rolelist', compact('roles', 'rulles', 'x'));
     }
 
     /**

@@ -45,6 +45,7 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->address}}</td>
                                 <td>{{$user->role_id}}</td>                          
+                                
                                  <td>
                                     {{ Form::open(['url'=>'user/'.$user->id, 'files'=>'true', 'onsubmit'=>'return ConfirmDelete()']) }}
                                     {{ csrf_field() }}

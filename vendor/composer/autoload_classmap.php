@@ -10,6 +10,8 @@ return array(
     'CreateAccessesTable' => $baseDir . '/database/migrations/2016_04_06_101258_create_accesses_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_04_10_051231_create_categories_table.php',
     'CreateDoctorsTable' => $baseDir . '/database/doctors.php',
+    'CreatePermissionRoleTable' => $baseDir . '/database/migrations/2016_04_27_045626_create_permission_role_table.php',
+    'CreatePermissionsTable' => $baseDir . '/database/migrations/2016_04_27_044737_create_permissions_table.php',
     'CreateRegistersTable' => $baseDir . '/database/migrations/2016_04_08_090051_create_registers_table.php',
     'CreateRoleUserTable' => $baseDir . '/database/migrations/2016_04_21_052356_create_role_user_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2016_04_06_103435_create_roles_table.php',

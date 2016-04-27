@@ -23,8 +23,31 @@ class User extends Model
     	return Validator::make($input, $rules);
     }
 
-    public function role() {
+
+    public function roles() {
         
     	return $this->belongsToMany('App\models\Role');
     }
+
+
+    public function hasRole($role) {
+
+        if(is_string( $role)) {
+
+            return $this->roles->contains('name', $role);
+        }
+
+        return !! $role->intersect($this->roles)->count();
+    }
+
+    public function assign($role) {
+        if (is_string($role)) {
+           return $this->roles()->save(
+                Role::whereName($role)->firstOrFail()
+            );
+        }
+      return $this->roles()->save();
+    }
+
+
 }

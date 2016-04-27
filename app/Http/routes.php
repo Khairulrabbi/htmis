@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('role/{id}/edit', 'RoleController@edit');
     Route::post('role/update/{id}', 'RoleController@saveOrUpdate');
 
+    Route::get('role', 'RoleController@indexe');
     Route::delete('role/{id}', function($id) {
         Role::findOrFail($id)->delete();
 

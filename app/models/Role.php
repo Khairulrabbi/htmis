@@ -33,9 +33,16 @@ class Role extends Model
     	return $this->hasMany('App\models\User');
     }
 
-    // public function users() {
+    //For ACL
 
-    // 	return $this->belongsToMany('App\models\User');
-    // }
+    public function permissions() {
+
+    	return $this->belongsToMany('App\models\Permission');
+    }
+
+    public function assign(Permission $permission) {
+
+    	return $this->permissions()->save($permission);
+    }
 
 }

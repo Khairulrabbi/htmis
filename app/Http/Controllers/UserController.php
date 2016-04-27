@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Response;
 use Session;
+use DB;
 
 class UserController extends Controller
 {
@@ -92,8 +93,15 @@ class UserController extends Controller
     public function index() {
         // $users = User::all();
         $users = User::orderBy('created_at','desc')->paginate(5);
+        $role = Role::all();
 
-        return view('auth.index', compact('users') );
+        $rolees = DB::table('users')
+                    ->join('roles', 'users.role_id','=','roles.id')
+                    ->select('users.name', 'roles.name')
+                    ->get();
+                
+
+        return view('auth.index', compact('users', 'role', 'rolees') );
     }
     /**
      * Show the form for editing the specified user.
@@ -104,13 +112,21 @@ class UserController extends Controller
     public function edit($id) {
         $user = User::find($id);
         $id = $user->id;
+        $role_id = $user->role_id;
 
         $roles = Role::all();
+        $role = Role::find($role_id);
 
-        return view('auth.edit', compact('user', 'id', 'roles'));
+        return view('auth.edit', compact('user', 'id', 'roles', 'role'));
     }
 
     public function login() {
+
+        return view('auth.login');
+    }
+
+    // working with auth login
+    public function dashbord() {
 
         return view('auth.login');
     }
