@@ -73,7 +73,8 @@ class AccessController extends Controller
 
             $access->save();
 
-            return redirect('access/list');
+            // return redirect('access/list');
+            return redirect('accesses');
             
         } else {
 

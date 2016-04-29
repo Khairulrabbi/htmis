@@ -12,14 +12,14 @@ Route::group(['middleware' => ['web']], function() {
 
     Route::get('access/add', 'AccessController@add');
     Route::post('access/add', 'AccessController@saveOrUpdate');
-    Route::get('access/list', 'AccessController@index');
+    Route::get('accesses', 'AccessController@index');
     Route::get('access/{id}/edit', 'AccessController@edit');
     Route::post('access/update/{id}', 'AccessController@saveOrUpdate');
 
     Route::delete('/access/{id}', function ($id) {
             Access::findOrFail($id)->delete();
 
-            return redirect('access/list');
+            return redirect('accesses');
     });
 
 
@@ -34,15 +34,15 @@ Route::group(['middleware' => ['web']], function() {
 
     Route::get('role/add', 'RoleController@add');
     Route::post('role/add', 'RoleController@saveOrUpdate');
-    Route::get('role/list', 'RoleController@index');
+    Route::get('roles', 'RoleController@index');
     Route::get('role/{id}/edit', 'RoleController@edit');
     Route::post('role/update/{id}', 'RoleController@saveOrUpdate');
 
-    Route::get('role', 'RoleController@indexe');
+    // Route::get('role', 'RoleController@indexe');
     Route::delete('role/{id}', function($id) {
         Role::findOrFail($id)->delete();
 
-        return redirect('role/list');
+        return redirect('roles');
     });
     
 
@@ -52,12 +52,12 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('category/add','CategoryController@saveOrUpdate');
     Route::get('category/{id}/edit', 'CategoryController@edit');
     Route::post('category/update/{id}', 'CategoryController@saveOrUpdate');
-    Route::get('category/list', 'CategoryController@index');
+    Route::get('categories', 'CategoryController@index');
 
     Route::delete('category/{id}', function($id){
         Category::findOrFail($id)->delete();
 
-        return redirect('category/list');
+        return redirect('categories');
 
     });
 
@@ -83,14 +83,16 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/home', 'HomeController@index');
     Route::get('register', 'UserController@add');
     Route::post('register', 'UserController@saveOrUpdate');
-    Route::get('user/list', 'UserController@index');
+    // Route::get('user/list', 'UserController@index');
+    Route::get('users', 'UserController@index');
     Route::get('user/{id}/edit', 'UserController@edit');
     Route::post('user/update/{id}', 'UserController@saveOrUpdate');
 
     Route::delete('user/{id}', function($id) {
         User::findOrFail($id)->delete();
 
-        return redirect('user/list');
+        // return redirect('user/list');
+        return redirect('users');
     });
 
     //Extra

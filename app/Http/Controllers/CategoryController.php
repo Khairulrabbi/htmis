@@ -62,7 +62,7 @@ class CategoryController extends Controller
  		  $category->category_name = $request->category_name;
     	  $category->save();
     	
-    	   return redirect('category/list');   	
+    	   return redirect('categories');   	
         } else {
 
             return Redirect::to('category/add')->withErrors($v->getMessageBag());

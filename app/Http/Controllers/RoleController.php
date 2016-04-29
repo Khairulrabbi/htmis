@@ -70,7 +70,8 @@ class RoleController extends Controller
         $id = $request->access;
         $role->access()->attach($id);
 
-        return redirect('role/list');            
+        // return redirect('role/list');            
+        return redirect('roles');            
         } else {
             return Redirect::to('role/add')->withErrors($v->getMessageBag());
         }

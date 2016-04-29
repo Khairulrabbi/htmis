@@ -40,7 +40,7 @@
                     <tbody>
                     @foreach($accesses as $access)
                         <tr>
-                            <td class="table-text"><div><a href={{ $access->id}}{{'/edit'}}> {{ $access->action_name }}</a></div></td>
+                            <td class="table-text"><div><a href={{'access/'}}{{ $access->id}}{{'/edit'}}> {{ $access->action_name }}</a></div></td>
                             <td class="table-text"><div>{{ $access->name }}</div></td>
                             <td class="table-text"><div>{{ $access->controller_name }}</div></td>
                             <td>

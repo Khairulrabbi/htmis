@@ -30,24 +30,24 @@ class User extends Model
     }
 
 
-    public function hasRole($role) {
+    // public function hasRole($role) {
 
-        if(is_string( $role)) {
+    //     if(is_string( $role)) {
 
-            return $this->roles->contains('name', $role);
-        }
+    //         return $this->roles->contains('name', $role);
+    //     }
 
-        return !! $role->intersect($this->roles)->count();
-    }
+    //     return !! $role->intersect($this->roles)->count();
+    // }
 
-    public function assign($role) {
-        if (is_string($role)) {
-           return $this->roles()->save(
-                Role::whereName($role)->firstOrFail()
-            );
-        }
-      return $this->roles()->save();
-    }
+    // public function assign($role) {
+    //     if (is_string($role)) {
+    //        return $this->roles()->save(
+    //             Role::whereName($role)->firstOrFail()
+    //         );
+    //     }
+    //   return $this->roles()->save();
+    // }
 
 
 }

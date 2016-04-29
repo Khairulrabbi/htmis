@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+// use App\models\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -26,6 +26,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        //ACL
+        $gate->define('edit', function($user, $role){
+            return $user->role_id === $role->id;
+        });
+        // foreach($this->getPermissions() as $permission) {
+        //     $gate->define($permission->name, function($user) use($permission){
+        //        return $user->hasRole($permission->roles);
+        //     });
+        // }
     }
+
+    // protected function getPermissions() {
+
+    //     return Permission::with('roles')->get();
+    // }
 }

@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use App\models\Permission;
 use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model

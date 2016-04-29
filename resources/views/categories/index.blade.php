@@ -39,7 +39,7 @@
                         <tbody>
                             @foreach($categories as $category)
                               <tr>
-                                <td><a href={{$category->id }}{{'/edit'}}>{{ $category->id }}</a></td>
+                                <td><a href={{'category/'}}{{$category->id }}{{'/edit'}}>{{ $category->id }}</a></td>
                                 <td>{{ $category->category_name }}</td>
                                 <td>
                                   {{ Form::open(['url'=>'category/'.$category->id, 'files'=>'true', 'onsubmit'=>'return ConfirmDelete()']) }}

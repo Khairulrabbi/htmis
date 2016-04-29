@@ -49,7 +49,7 @@
            
                                     <div class="col-xs-4">
                                     <br>
-                                        <a href="../list" class="btn btn-primary btn-block btn-flat">Cancel</a> 
+                                        <a href="../../categories" class="btn btn-primary btn-block btn-flat">Cancel</a> 
                                     </div>
 
                                     <div class="col-xs-4">

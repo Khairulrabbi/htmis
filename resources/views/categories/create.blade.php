@@ -47,16 +47,13 @@
 
                                     </div><!-- /.col -->
            
-                               <!--      <div class="col-xs-4">
-                                        <a href="../category/list" style="position: absolute;font-size: large;left: 30%">Cancel</a>
-                                    </div> -->
                                     <div class="col-xs-4">
                                     <br>
                                         <button type="submit" class="btn btn-primary btn-block btn-flat">Add New</button>
                                     </div>
 
                                     <div class="col-xs-4">
-                                        <a href="../category/list" class="btn btn-primary btn-block btn-flat">Cancel</a> 
+                                        <a href="../categories" class="btn btn-primary btn-block btn-flat">Cancel</a> 
                                     </div>
                                 </div>
 

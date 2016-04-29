@@ -39,7 +39,7 @@
                     <tbody>
                         @foreach($roles as $role)
                           <tr>
-                            <td><a href= {{ $role->id}}{{'/edit'}} > {{ $role->name }}</a></td>
+                            <td><a href= {{'role/'}}{{ $role->id}}{{'/edit'}} > {{ $role->name }}</a></td>
                             <td>{{ $role->status }}</td>
                             <td>       
                                 {!! Form::open(['url' =>'role/'.$role->id, 'files'=>true , 'onsubmit' => 'return ConfirmDelete()']) !!}

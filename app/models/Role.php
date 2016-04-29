@@ -35,14 +35,14 @@ class Role extends Model
 
     //For ACL
 
-    public function permissions() {
+    // public function permissions() {
 
-    	return $this->belongsToMany('App\models\Permission');
-    }
+    // 	return $this->belongsToMany('App\models\Permission');
+    // }
 
-    public function assign(Permission $permission) {
+    // public function assign(Permission $permission) {
 
-    	return $this->permissions()->save($permission);
-    }
+    // 	return $this->permissions()->save($permission);
+    // }
 
 }
