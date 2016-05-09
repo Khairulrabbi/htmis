@@ -86,7 +86,8 @@ Route::group(['middleware' => ['web']], function() {
     // Route::get('user/list', 'UserController@index');
     Route::get('users', 'UserController@index');
     Route::get('user/{id}/edit', 'UserController@edit');
-    Route::post('user/update/{id}', 'UserController@saveOrUpdate');
+    // Route::post('user/update/{id}', 'UserController@saveOrUpdate');
+    Route::post('user/update/{id}', 'UserController@update');
 
     Route::delete('user/{id}', function($id) {
         User::findOrFail($id)->delete();
@@ -98,6 +99,8 @@ Route::group(['middleware' => ['web']], function() {
     //Extra
 
     Route::get('relation/result', 'RoleController@extra');
+    Route::get('rel', 'RoleController@role_user');
+    Route::get('rels', 'UserController@us_role');
 
 
 });

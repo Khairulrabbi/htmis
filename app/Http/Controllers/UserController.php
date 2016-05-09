@@ -76,6 +76,12 @@ class UserController extends Controller
             $user->role_id = $request->role_id;
             $user->save();
 
+            //Added for relationships
+            $id = $request->role_id;
+
+            $user->role()->associate($id);
+            //above two lines
+
             // return redirect('user/list');
             return redirect('/home');
         } else {
@@ -85,13 +91,34 @@ class UserController extends Controller
      
     }
 
+
+    //Updating with Validation
+
+    public function update(Request $request, $id) {
+        $va =User::validates(Input::all());
+        $user = User::find($id);
+        if ($va->passes()) {
+
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->password = bcrypt($request->password);
+                $user->address = $request->address;
+                $user->role_id = $request->role_id;
+
+                $user->save();  
+
+                return redirect('/users');         
+        } else {
+            return Redirect::to('user/'.$user->id.'/edit')->withErrors($va->getMessageBag());
+        }
+    } 
+
     /**
      * Display a listing of the user.
      *
      * @return Response
      */
     public function index() {
-        // $users = User::all();
         $users = User::orderBy('created_at','desc')->paginate(5);
         $role = Role::all();
 
@@ -129,6 +156,15 @@ class UserController extends Controller
     public function dashbord() {
 
         return view('auth.login');
+    }
+
+    //Working to show relationships between Role and User
+
+    public function us_role() {
+       $user = User::find(21);
+       echo "$user";
+       echo $user->role_id;
+
     }
 
 }

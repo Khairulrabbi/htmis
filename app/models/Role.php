@@ -28,6 +28,10 @@ class Role extends Model
     	return $this->belongsToMany('App\models\Access');
     }
 
+    /**
+     *the relationship between user and role
+     *
+     */
     public function users() {
     
     	return $this->hasMany('App\models\User');

@@ -12,9 +12,21 @@ class User extends Model
     protected $fillable = ['name', 'email', 'password', 'address', 'role_id'];
 
     public static function validate($input) {
-    	$rules = array(
+        $rules = array(
             'name' => 'required|alpha|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'address' => 'required|max:255',
+            'role_id' => 'required|numeric|max:11',
+            'password' => 'required|confirmed|min:6',
+            );
+
+        return Validator::make($input, $rules);
+    }   
+
+     public static function validates($input) {
+    	$rules = array(
+            'name' => 'required|alpha|max:255',
+            'email' => 'required|email|max:255',
             'address' => 'required|max:255',
             'role_id' => 'required|numeric|max:11',
             'password' => 'required|confirmed|min:6',
@@ -24,9 +36,12 @@ class User extends Model
     }
 
 
-    public function roles() {
+    /**
+     * Get the role that owns the user
+     */
+    public function role() {
         
-    	return $this->belongsToMany('App\models\Role');
+    	return $this->belongsTo('App\models\Role');
     }
 
 

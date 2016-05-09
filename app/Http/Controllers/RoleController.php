@@ -123,4 +123,14 @@ class RoleController extends Controller
         var_dump($accesses);
     }
 
+//Displaying user and role data 
+    public function role_user() {
+        $users = Role::find(2)->users;
+
+        foreach($users as $user) {
+            echo $user->id ."<br>";
+
+        }
+    }
+
 }
