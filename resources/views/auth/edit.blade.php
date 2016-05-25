@@ -13,26 +13,32 @@
         {{ Form::open(['url'=>'user/update/'.$user->id, 'method'=>'post', 'role'=>'form']) }}
         {!! csrf_field() !!}
         <div class="form-group has-feedback">
+            <label>Name</label>
             <input type="text" class="form-control" name="name" value="{{ $user->name }}">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
+           <label>Email</label>
             <input type="email" class="form-control" name="email" value="{{ $user->email }}">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
+            <label>Password</label>
             <input type="password" class="form-control" name="password" value="{{ $user->password }}">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
+            <label>Confirm Password</label>
             <input type="password" name="password_confirmation" class="form-control">
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
       <div class="form-group has-feedback">
+          <label>Address</label>
           <input type="text" class="form-control" name="address" value="{{ $user->address }}" >
           <span class="glyphicon glyphicon-user form-control-feedback"></span> 
       </div>
       <div class="form-group">
+          <label>Role</label>
             <select class="form-control select2" name="role_id" style="width: 100%;">
                 <option value="">
                     Choose Role Type
